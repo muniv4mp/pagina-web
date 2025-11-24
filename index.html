@@ -16,12 +16,20 @@
       <h1>Recetas Para Matar El Antojo</h1>
       <p><em>Sabores que unen tradición, amor y familia</em></p>
     </header>
-
     <nav>
-      <a href="#arroz">Arroz con Leche</a>
-      <a href="#torta">Torta de Chocolate</a>
-      <a href="#patacones">Patacones con Ahogao</a>
-      <a href="#bandeja">Bandeja Paisa</a>
+      <a href="#">Inicio</a>
+
+      <div class="dropdown">
+        <a href="#" class="drop-btn">Servicios ▼</a>
+        <div class="dropdown-content">
+          <a href="#arroz">Arroz con Leche</a>
+          <a href="#torta">Torta de Chocolate</a>
+          <a href="#patacones">Patacones con Ahogao</a>
+          <a href="#bandeja">Bandeja Paisa</a>
+        </div>
+      </div>
+
+      <a href="./contacto.html">Contacto</a>
     </nav>
 
     <div class="busqueda">
@@ -469,13 +477,22 @@
           <button onclick="filtrar('postre')">Postres</button>
           <button onclick="filtrar('tipico')">Platos Típicos</button>
         </div>
+        <div class="">
+          <iframe
+            src="https://storage.googleapis.com/maps-solutions-nou0aput6r/neighborhood-discovery/ucm8/neighborhood-discovery.html"
+            width="100%"
+            height="500px"
+            style="border: 0"
+            loading="lazy"
+          >
+          </iframe>
+        </div>
       </aside>
     </main>
 
     <footer>
       <p>© 2025 Recetario Dulce — Hecho con 💗 | Valerie Unibio</p>
     </footer>
-
     <script>
       const inputBuscar = document.getElementById("buscar");
       const recetas = document.querySelectorAll("#recetas article");
@@ -498,6 +515,21 @@
           }
         });
       }
+    </script>
+    <script>
+      document
+        .querySelector(".drop-btn")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(".dropdown-content").classList.toggle("show");
+        });
+
+      document.addEventListener("click", function (e) {
+        const dropdown = document.querySelector(".dropdown");
+        if (!dropdown.contains(e.target)) {
+          document.querySelector(".dropdown-content").classList.remove("show");
+        }
+      });
     </script>
   </body>
 </html>
